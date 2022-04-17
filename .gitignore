@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# potentially sensitive config info
+config/config.json

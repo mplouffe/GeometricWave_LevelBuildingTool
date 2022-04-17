@@ -1,0 +1,23 @@
+{
+  "name": "geometricwave_levelbuildingtool",
+  "version": "1.0.0",
+  "description": "A level building tool for Geometric Wave.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server/server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mplouffe/GeometricWave_LevelBuildingTool.git"
+  },
+  "author": "Matheu Plouffe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mplouffe/GeometricWave_LevelBuildingTool/issues"
+  },
+  "homepage": "https://github.com/mplouffe/GeometricWave_LevelBuildingTool#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
