@@ -5,8 +5,51 @@
 	<!-- Styles -->
 	<link rel="stylesheet" type="text/css" href="css/geometricWaveLevelToolStyle.css">
 	<link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
 <body>
     <h1>Geometric Wave Level Tool</h1>
-    <canvas></canvas>
+    
+    <div id="app_window">
+        <div id="design_window">
+            <h2>Design Window</h2>
+            <canvas width="428px" height="800px" id="design_canvas"></canvas>
+        </div>
+
+        <div id="properties_window">
+            <h2>Properties Window</h2>
+            <h3 id="property_label">#[Property Label]</h3>
+            <h4 id="property_value">#[Property Value]</h3>
+        </div>
+        
+        <div id="preview_window">
+            <h2>Preview Window</h2>
+            <div id="preview_controls">
+                <span class="material-icons preview_control">
+                    skip_previous
+                    </span>
+                <span class="material-icons preview_control">
+                    fast_rewind
+                    </span>
+                <span class="material-icons preview_control">
+                    pause
+                    </span>
+                <span class="material-icons preview_control">
+                    play_arrow
+                    </span>
+                <span class="material-icons preview_control">
+                    fast_forward
+                    </span>
+                <span class="material-icons preview_control">
+                    skip_next
+                    </span>           
+            </div>
+            <canvas id="preview_canvas"></canvas>
+        </div>
+    </div>
 </body>
+
+<script src="js/clickable.js"></script>
+<script src="js/designWindow.js"></script>
+<script src="js/init.js"></script>

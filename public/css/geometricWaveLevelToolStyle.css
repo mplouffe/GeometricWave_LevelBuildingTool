@@ -22,16 +22,92 @@ time, mark, audio, video {
 
 body{
 	background-color: #000;
+	color: #FFF;
+	font-family: 'VT323'
 }
 
 canvas{
 	display: block;
-	background-color: #0bf;
+	background-color: #FFF;
     margin: auto;
 }
 
 h1 {
-    font-family: 'VT323';
-	font-size: 25px;
-	color: #FFF;
+	font-size: 35px;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	display: block;
 }
+
+h2 {
+	font-size: 20px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+h3 {
+	font-size: 12px;
+	font-weight: bold;
+	display: inline;
+	float: left;
+}
+
+h4 {
+	font-size: 12px;
+	display: inline;
+	float: right;
+}
+
+#app_window {
+	width: 1000px;
+	height: auto;
+	display: block;
+	margin: auto;
+}
+
+#preview_window {
+	width: 480px;
+	display: block;
+	margin: auto;
+	padding-top: 30px;
+	clear: both;
+}
+
+#preview_controls {
+	margin: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.preview_control {
+	flex-direction: row;
+}
+
+#preview_canvas {
+	width: 473px;
+	height: 252px;
+}
+
+#design_window {
+	width: 110px;
+	display: block;
+	float: left;
+	margin-left: 20px;
+}
+
+#design_canvas {
+	width: 428px;
+	height: 800px;
+}
+
+#properties_window {
+	width: 200px;
+	display: block;
+	float: right;
+
+}
+
