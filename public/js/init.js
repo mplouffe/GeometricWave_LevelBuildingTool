@@ -1,8 +1,12 @@
 
 var designWindow;
+var designBrush;
+
 function init() {
     designWindow = new DesignWindow();
     designWindow.mouseEvents();
+    designBrush = new DesignBrush();
+
     requestAnimationFrame(animate);
 }
 

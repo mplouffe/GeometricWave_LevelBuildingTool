@@ -10,19 +10,27 @@
 </head>
 <body>
     <h1>Geometric Wave Level Tool</h1>
-    
     <div id="app_window">
-        <div id="design_window">
-            <h2>Design Window</h2>
-            <canvas width="428px" height="800px" id="design_canvas"></canvas>
-        </div>
+        <div id="design_tools">
+            <div id="design_brush">
+                <h2>Design Brush</h2>
+                <canvas width="200px" height="200px" id="design_brush_canvas"></canvas>
+                <label for="design_brush_selector">Choose an element:</label>
+                <select name="design_brush_selector" id="design_brush_selector">
+                </select>
+            </div>
 
-        <div id="properties_window">
-            <h2>Properties Window</h2>
-            <h3 id="property_label">#[Property Label]</h3>
-            <h4 id="property_value">#[Property Value]</h3>
+            <div id="design_window">
+                <h2>Design Window</h2>
+                <canvas width="428px" height="800px" id="design_canvas"></canvas>
+            </div>
+
+            <div id="properties_window">
+                <h2>Properties Window</h2>
+                <h3 id="property_label">#[Property Label]</h3>
+                <h4 id="property_value">#[Property Value]</h3>
+            </div>
         </div>
-        
         <div id="preview_window">
             <h2>Preview Window</h2>
             <div id="preview_controls">
@@ -50,6 +58,8 @@
     </div>
 </body>
 
+<script src="data/designBrushData.js"></script>
 <script src="js/clickable.js"></script>
 <script src="js/designWindow.js"></script>
+<script src="js/designBrush.js"></script>
 <script src="js/init.js"></script>

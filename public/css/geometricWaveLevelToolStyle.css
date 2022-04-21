@@ -62,14 +62,13 @@ h4 {
 }
 
 #app_window {
-	width: 1000px;
+	width: 1100px;
 	height: auto;
 	display: block;
 	margin: auto;
 }
 
 #preview_window {
-	width: 480px;
 	display: block;
 	margin: auto;
 	padding-top: 30px;
@@ -92,11 +91,33 @@ h4 {
 	height: 252px;
 }
 
-#design_window {
-	width: 110px;
-	display: block;
+#design_tools {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+#design_brush {
+	width: 225px;
+	flex-direction: row;
 	float: left;
+}
+
+#design_brush label {
+	display: block;
+	margin-left: 13px;
+	margin-top: 10px;
+}
+
+#design_brush select {
+	margin-left: 13px;
+	margin-top: 10px;
+}
+
+#design_window {
+	width: 428px;
 	margin-left: 20px;
+	flex-direction: row;
 }
 
 #design_canvas {
@@ -106,8 +127,6 @@ h4 {
 
 #properties_window {
 	width: 200px;
-	display: block;
-	float: right;
-
+	flex-direction: row;
 }
 
