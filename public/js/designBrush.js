@@ -31,4 +31,8 @@ class DesignBrush {
         let imageY = (this.canvasHeight / 2) - (this.image.height / 2);
         this.context.drawImage(this.image, imageX, imageY);
     }
+
+    currentSelectedBrush() {
+        return this.selector.options[this.selector.selectedIndex].value;
+    }
 }

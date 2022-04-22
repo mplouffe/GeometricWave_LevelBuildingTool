@@ -1,15 +1,17 @@
 
 class DesignWindow {
 
-    constructor() {
+    constructor(designBrush) {
         this.canvas = document.getElementById("design_canvas");
         this.context = this.canvas.getContext("2d");
         this.canvasWidth = this.canvas.width;
         this.canvasHeight = this.canvas.height;
 
+        this.designBrush = designBrush;
+
         this.clickables = [];
 
-        this.playerShip = new Clickable('./assets/Triangle_Fighter_02.png', 10);
+        this.playerShip = new Clickable('./assets/Triangle_Fighter_02.png', 10, 10, 10);
         this.clickables.push(this.playerShip);
 
         this.isDragging = false;
@@ -50,7 +52,20 @@ class DesignWindow {
         this.canvas.onmousedown = function(e) {
             e.preventDefault();
             e.stopPropagation();
-            this.clickables.forEach((clickable) => { clickable.clicking = clickable.isInBounds(e.pageX - this.canvas.offsetLeft, e.pageY - this.canvas.offsetTop); });
+            this.clickConsumed = false;
+            let clickX = e.pageX - this.canvas.offsetLeft;
+            let clickY = e.pageY - this.canvas.offsetTop;
+            this.clickables.forEach((clickable) => {
+                clickable.clicking = clickable.isInBounds(clickX, clickY);
+                if (clickable.clicking) {
+                    this.clickConsumed = true;
+                }
+            });
+            if (!this.clickConsumed) {
+                let src = this.designBrush.currentSelectedBrush();
+                let newElement = new Clickable(src, 10, clickX, clickY);
+                this.clickables.push(newElement);
+            }
         }.bind(this);
 
         this.canvas.onmousemove = function(e) {
