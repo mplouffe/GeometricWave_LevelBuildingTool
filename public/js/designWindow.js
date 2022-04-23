@@ -4,8 +4,13 @@ class DesignWindow {
     constructor(designBrush, propertiesWindow) {
         this.canvas = document.getElementById("design_canvas");
         this.context = this.canvas.getContext("2d");
+        
         this.canvasWidth = this.canvas.width;
         this.canvasHeight = this.canvas.height;
+        designCanvasLength = this.canvasHeight;
+
+        this.previewRectHeight = 240;
+        this.previewRectWidth = 428;
 
         this.designBrush = designBrush;
         this.propertiesWindow = propertiesWindow;
@@ -47,7 +52,7 @@ class DesignWindow {
         this.context.save();
         this.context.beginPath();
         this.context.strokeStyle = "red";
-        this.context.strokeRect(0, startY, 428, 240);
+        this.context.strokeRect(0, designCanvasLength - this.previewRectHeight, this.previewRectWidth, this.previewRectHeight);
         this.context.restore();
     }
     

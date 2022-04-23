@@ -2,13 +2,13 @@
 var designWindow;
 var designBrush;
 var propertiesWindow;
+var designCanvasLength;
 
 function init() {
     designBrush = new DesignBrush();
     propertiesWindow = new PropertiesWindow();
     designWindow = new DesignWindow(designBrush, propertiesWindow);
     designWindow.mouseEvents();
-
 
     requestAnimationFrame(animate);
 }

@@ -12,27 +12,34 @@ class Clickable {
             this.halfscaledheight = this.scaledheight/2;
         }.bind(this);
 
+        this.drawPositionX = startingX;
+        this.drawPositionY = startingY;
+
         this.properties = {
-            positionX: startingX,
-            positionY: startingY
+            positionX: (startingX + this.halfscaledwidth) / 4,
+            positionY: (designCanvasLength - startingY - this.halfscaledheight) / 4
         }
+
         this.clicking = false;
     }
 
     setPosition(x, y) {
-        this.properties.positionX = x;
-        this.properties.positionY = y;
+        this.drawPositionX = x;
+        this.drawPositionY = y;
+
+        this.properties.positionX = (x + this.halfscaledwidth) / 4;
+        this.properties.positionY = (designCanvasLength - y - this.halfscaledheight) / 4;
     }
 
     isInBounds(x, y) {
 
-        return x >= this.properties.positionX &&
-                x <= this.properties.positionX + this.scaledwidth &&
-                y >= this.properties.positionY &&
-                y <= this.properties.positionY + this.scaledheight;
+        return x >= this.drawPositionX &&
+                x <= this.drawPositionX + this.scaledwidth &&
+                y >= this.drawPositionY &&
+                y <= this.drawPositionY + this.scaledheight;
     }
 
     drawClickable(context) {
-        context.drawImage(this.image, 0, 0, this.image.width, this.image.height, this.properties.positionX, this.properties.positionY, this.scaledwidth, this.scaledheight);
+        context.drawImage(this.image, 0, 0, this.image.width, this.image.height, this.drawPositionX, this.drawPositionY, this.scaledwidth, this.scaledheight);
     }
 }
