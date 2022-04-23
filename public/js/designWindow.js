@@ -1,13 +1,14 @@
 
 class DesignWindow {
 
-    constructor(designBrush) {
+    constructor(designBrush, propertiesWindow) {
         this.canvas = document.getElementById("design_canvas");
         this.context = this.canvas.getContext("2d");
         this.canvasWidth = this.canvas.width;
         this.canvasHeight = this.canvas.height;
 
         this.designBrush = designBrush;
+        this.propertiesWindow = propertiesWindow;
 
         this.clickables = [];
 
@@ -15,6 +16,8 @@ class DesignWindow {
         this.clickables.push(this.playerShip);
 
         this.isDragging = false;
+
+        this.selectedElement = null;
     }
 
     clear() {
@@ -59,12 +62,18 @@ class DesignWindow {
                 clickable.clicking = clickable.isInBounds(clickX, clickY);
                 if (clickable.clicking) {
                     this.clickConsumed = true;
+                    this.selectedElement = clickable;
+                    this.propertiesWindow.updatePropertiesWindow(clickable);
+                    this.propertiesWindow.updatePropertiesDetails(clickable);
                 }
             });
             if (!this.clickConsumed) {
                 let src = this.designBrush.currentSelectedBrush();
                 let newElement = new Clickable(src, 10, clickX, clickY);
                 this.clickables.push(newElement);
+                this.propertiesWindow.updatePropertiesWindow(newElement);
+                this.propertiesWindow.updatePropertiesDetails(newElement);
+                this.selectedElement = newElement;
             }
         }.bind(this);
 
@@ -73,8 +82,10 @@ class DesignWindow {
             e.stopPropagation();
             this.clickables.forEach((clickable) => {
                 if (clickable.clicking) {
-                    clickable.currentX = e.pageX - this.canvas.offsetLeft - clickable.halfscaledwidth;
-                    clickable.currentY = e.pageY - this.canvas.offsetTop - clickable.halfscaledheight;
+                    let newX = e.pageX - this.canvas.offsetLeft - clickable.halfscaledwidth;
+                    let newY = e.pageY - this.canvas.offsetTop - clickable.halfscaledheight;
+                    clickable.setPosition(newX, newY);
+                    this.propertiesWindow.updatePropertiesDetails(clickable);
                 }
             });
           }.bind(this);
@@ -89,6 +100,17 @@ class DesignWindow {
             e.preventDefault();
             e.stopPropagation();
             this.clickables.forEach((clickable) => { clickable.clicking = false; });
+          }.bind(this);
+
+          document.onkeydown = function(e) {
+              if (e.code === "Backspace" && this.selectedElement != null) {
+                  let index = this.clickables.indexOf(this.selectedElement);
+                  if (index > -1) {
+                      this.clickables.splice(index, 1);
+                      this.selectedElement = null;
+                      this.propertiesWindow.clearPropertiesWindow();
+                  }
+              }
           }.bind(this);
     }
 

@@ -21,14 +21,14 @@ class DesignBrush {
         this.image.onload = this.updateImage.bind(this);
     }
 
-    updateDesignBrushCanvas(newValue) {
+    updateDesignBrushCanvas() {
         this.image.src = this.selector.options[this.selector.selectedIndex].value;
     };
 
     updateImage() {
-        this.context.clearRect(0,0,this.canvas.width, this.canvas.height);
-        let imageX = (this.canvasWidth / 2) - (this.image.width / 2);
-        let imageY = (this.canvasHeight / 2) - (this.image.height / 2);
+        this.context.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+        let imageX = (this.canvasWidth * 0.5) - (this.image.width * 0.5);
+        let imageY = (this.canvasHeight * 0.5) - (this.image.height * 0.5);
         this.context.drawImage(this.image, imageX, imageY);
     }
 

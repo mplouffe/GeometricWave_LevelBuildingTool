@@ -1,10 +1,12 @@
 
 var designWindow;
 var designBrush;
+var propertiesWindow;
 
 function init() {
     designBrush = new DesignBrush();
-    designWindow = new DesignWindow(designBrush);
+    propertiesWindow = new PropertiesWindow();
+    designWindow = new DesignWindow(designBrush, propertiesWindow);
     designWindow.mouseEvents();
 
 
@@ -18,6 +20,5 @@ function animate() {
     designWindow.drawClickables();
     requestAnimationFrame(animate);
 }
-
 
 window.addEventListener('load', init);

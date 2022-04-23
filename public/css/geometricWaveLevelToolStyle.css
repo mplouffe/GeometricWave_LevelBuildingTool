@@ -48,19 +48,6 @@ h2 {
 	text-align: center;
 }
 
-h3 {
-	font-size: 12px;
-	font-weight: bold;
-	display: inline;
-	float: left;
-}
-
-h4 {
-	font-size: 12px;
-	display: inline;
-	float: right;
-}
-
 #app_window {
 	width: 1100px;
 	height: auto;
@@ -128,5 +115,25 @@ h4 {
 #properties_window {
 	width: 200px;
 	flex-direction: row;
+}
+
+#properties_details {
+	margin-top: 10px;
+}
+
+.property_row {
+	height: 15px;
+}
+
+.property_label {
+	font-size: 15px;
+	display: inline;
+	float: left;
+}
+
+.property_value {
+	font-size: 15px;
+	display: inline;
+	float: right;
 }
 
