@@ -1,4 +1,3 @@
-
 class DesignWindow {
 
     constructor(designBrush, propertiesWindow) {
